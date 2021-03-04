@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="40dp"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product name"
+        android:id="@+id/etProductName"
+        android:padding="10dp"
+        android:textColorHint="#3F51B5"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product price"
+        android:id="@+id/etProductPrice"
+        android:padding="10dp"
+        android:textColorHint="#3F51B5"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Brand"
+        android:id="@+id/etBrand"
+        android:padding="10dp"
+        android:textColorHint="#3F51B5"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnAdd"
+        android:background="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:text="Add product"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:padding="40dp"
+    android:layout_height="match_parent"
+    android:gravity="center">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product name"
+        android:id="@+id/tvProductName"
+        android:padding="10dp"
+        android:textColor="#3F51B5"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Product price"
+        android:id="@+id/tvProductPrice"
+        android:padding="10dp"
+        android:textColor="#3F51B5"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Brand"
+        android:id="@+id/tvBrand"
+        android:padding="10dp"
+        android:textColor="#3F51B5"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnEdit"
+        android:background="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:text="Edit product"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>
