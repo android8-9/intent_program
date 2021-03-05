@@ -18,13 +18,11 @@ public class EditProductActivity extends AppCompatActivity {
         binding.btnAdd.setText("Update product");
 
         Intent in = getIntent();
-        String name = in.getStringExtra("name");
-        int price = in.getIntExtra("price",0);
-        String brand = in.getStringExtra("brand");
+        Product p = (Product) in.getSerializableExtra("product");
 
-        binding.etProductName.setText(name);
-        binding.etProductPrice.setText(""+price);
-        binding.etBrand.setText(brand);
+        binding.etProductName.setText(p.getName());
+        binding.etProductPrice.setText(""+p.getPrice());
+        binding.etBrand.setText(p.getBrand());
 
         binding.btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,10 +32,8 @@ public class EditProductActivity extends AppCompatActivity {
                String brand = binding.etBrand.getText().toString();
                Intent in = new Intent();
 
-               in.putExtra("updatedName",name);
-               in.putExtra("updatedPrice",price);
-               in.putExtra("updatedBrand",brand);
-
+               Product p = new Product(name,Integer.parseInt(price),brand);
+               in.putExtra("updatedProduct",p);
                setResult(222,in);
                finish();
             }

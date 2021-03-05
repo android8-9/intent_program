@@ -19,12 +19,12 @@ public class ShowProductActivity extends AppCompatActivity {
         binding = ShowProductDetailsBinding.inflate(LayoutInflater.from(this));
         setContentView(binding.getRoot());
         Intent in = getIntent();
-        String name = in.getStringExtra("name");
-        int price = in.getIntExtra("price",0);
-        String brand = in.getStringExtra("brand");
-        binding.tvProductName.setText(name);
-        binding.tvProductPrice.setText(""+price);
-        binding.tvBrand.setText(brand);
+
+        Product p = (Product) in.getSerializableExtra("product");
+
+        binding.tvProductName.setText(p.getName());
+        binding.tvProductPrice.setText(""+p.getPrice());
+        binding.tvBrand.setText(p.getBrand());
         binding.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,9 +33,8 @@ public class ShowProductActivity extends AppCompatActivity {
                 String brand = binding.tvBrand.getText().toString();
 
                 Intent in = new Intent(ShowProductActivity.this,EditProductActivity.class);
-                in.putExtra("name",name);
-                in.putExtra("price",price);
-                in.putExtra("brand",brand);
+                Product p = new Product(name,price,brand);
+                in.putExtra("product",p);
                 startActivityForResult(in,111);
             }
         });
@@ -46,12 +45,10 @@ public class ShowProductActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         Toast.makeText(this, "onActivityResult()-called", Toast.LENGTH_SHORT).show();
         if(requestCode == 111 && resultCode == 222 && data !=null) {
-            String name = data.getStringExtra("updatedName");
-            String price = data.getStringExtra("updatedPrice");
-            String brand = data.getStringExtra("updatedBrand");
-            binding.tvProductName.setText(name);
-            binding.tvBrand.setText(brand);
-            binding.tvProductPrice.setText(price);
+            Product p = (Product) data.getSerializableExtra("updatedProduct");
+            binding.tvProductName.setText(p.getName());
+            binding.tvBrand.setText(p.getBrand());
+            binding.tvProductPrice.setText(""+p.getPrice());
         }
     }
 }

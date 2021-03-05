@@ -37,9 +37,8 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 Intent in = new Intent(MainActivity.this,ShowProductActivity.class);
-                in.putExtra("name",productName);
-                in.putExtra("price",Integer.parseInt(price));
-                in.putExtra("brand",brand);
+                Product p = new Product(productName,Integer.parseInt(price),brand);
+                in.putExtra("product",p);
                 startActivity(in);
             }
         });
